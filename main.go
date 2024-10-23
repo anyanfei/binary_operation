@@ -25,6 +25,7 @@ func main() {
 	}
 	fmt.Println(lastSlice)*/
 	t1 := F1 | F3 | F5 // 相加
+	//t1 = 645999389
 	findBitWeights(t1)
 	fmt.Println(isInNum(t1, F2))
 	fmt.Println(isInNum(t1, F5))
@@ -54,8 +55,10 @@ func findBitWeights(num int) {
 func countBits(num int) int {
 	count := 0
 	for num > 0 {
-		num &= num - 1
-		count++
+		if num&1 == 1 {
+			count++
+		}
+		num >>= 1
 	}
 	return count
 }
